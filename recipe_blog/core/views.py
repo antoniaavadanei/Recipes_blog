@@ -29,3 +29,4 @@ class UpdatePostView(UpdateView):
     model = Post
     form_class = EditForm
     template_name = 'update_post.html'
+    # fields = ('title','author','body')
