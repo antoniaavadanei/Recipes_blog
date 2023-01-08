@@ -5,6 +5,8 @@
 {% block content%}
 <h1> {{post.title}}</h1>
 <h2>By: {{post.author}}</h2>
+{{post.post_date}}
+<br>
 <br>
 <a href="{% url 'update_post' post.pk %}" >Edit Post</a>
 <br>
