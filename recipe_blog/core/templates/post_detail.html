@@ -7,6 +7,8 @@
 <h2>By: {{post.author}}</h2>
 <br>
 <a href="{% url 'update_post' post.pk %}" >Edit Post</a>
+<br>
+<a href="{% url 'delete_post' post.pk %}" >Delete Post</a>
 <hr>
 {{post.body}}
 <br>
