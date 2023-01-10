@@ -3,7 +3,7 @@
     Edit blog post
 {% endblock %}
 {% block content%}
-
+{% if user.is_authenticated %}
 <h1>Edit Post</h1>
 <br>
 <div class="form-group">
@@ -12,4 +12,8 @@
         {{ form.as_p }}
         <button class="btn btn-secondary">Edit</button>
 </div>
+{% else %}
+<h3>Error!</h3>
+
+{% endif %}
 {% endblock %}

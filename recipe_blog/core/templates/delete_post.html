@@ -4,6 +4,7 @@
 {% endblock %}
 {% block content%}
 
+{% if user.is_authenticated %}
 <h1>Delete Post</h1>
 <br>
 <h3> Delete : {{post.title}}</h3>
@@ -12,4 +13,8 @@
         {% csrf_token %}
         <button class="btn btn-secondary">Delete post!</button>
 </div>
+{% else %}
+<h3>Error!</h3>
+
+{% endif %}
 {% endblock %}

@@ -4,6 +4,7 @@
 {% endblock %}
 {% block content%}
 
+{% if user.is_authenticated %}
 <h1>Add Post</h1>
 <br>
 <div class="form-group">
@@ -12,4 +13,8 @@
         {{ form.as_p }}
         <button class="btn btn-secondary">Post</button>
 </div>
+{% else %}
+<h3>Error!</h3>
+
+{% endif %}
 {% endblock %}
