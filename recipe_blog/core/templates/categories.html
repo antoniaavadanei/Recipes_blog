@@ -2,13 +2,12 @@
 
 {% block content%}
 
-<h1>Posts</h1>
+<h1>{{cats}}</h1>
 
-<ul>
-{% for post in object_list %}
+{% if category_posts %}
+{% for post in category_posts %}
     <li><a href="{% url 'post_detail' post.pk %}"> {{ post.title }}</a>
         - {{ post.author.first_name }}
-        - <a href="{% url 'category' post.category %}">{{ post.category }}</a>
         {% if user.is_authenticated %}
         - <a href="{% url 'update_post' post.pk %}" >Edit Post</a>
         - <a href="{% url 'delete_post' post.pk %}" >Delete Post</a>
@@ -16,5 +15,8 @@
         <br>
         {{ post.body|slice:":100"|safe }}</li>
 {% endfor %}
-</ul>
+{% else %}
+    <h3>Error!</h3>
+{% endif%}
+
 {% endblock %}
