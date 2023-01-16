@@ -16,7 +16,7 @@
         {{ post.body|slice:":100"|safe }}</li>
 {% endfor %}
 {% else %}
-    <h3>Error!</h3>
+    <h3>This category does not exists or does not contain any post!</h3>
 {% endif%}
 
 {% endblock %}
