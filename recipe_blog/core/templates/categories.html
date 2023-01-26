@@ -5,6 +5,7 @@
 <h1>{{cats}}</h1>
 
 {% if category_posts %}
+
 {% for post in category_posts %}
     <li><a href="{% url 'post_detail' post.pk %}"> {{ post.title }}</a>
         - {{ post.author.first_name }}

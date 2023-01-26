@@ -84,3 +84,22 @@ def CategoryView(request, cats):
 def CategoryListView(request):
     cat_menu_list = Category.objects.all()
     return render(request, 'category_list.html', {'cat_menu_list': cat_menu_list})
+
+class CategoryDetailView(ListView):
+    model = Category
+    template_name = 'category_detail.html'
+
+    # def get_context_data(self, *args, **kwargs):
+    #
+    #     context = super(CategoryDetailView,self).get_context_data(*args, **kwargs)
+    #     context["cat_menu"] = cat_menu
+    #     return context
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        cat_menu = Category.objects.all()
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['post_list'] = Post.objects.filter(category="Vegan")
+        context["cat_menu"] = cat_menu
+        return context

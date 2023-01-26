@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title%}
+    {{post.title_tag}}
+{% endblock %}
+{% block content%}
+<h1> {{category.name}}</h1>
+
+{% for post in post_list %}
+<p>{{post}}</p>
+{% endfor %}
+
+{% endblock %}
