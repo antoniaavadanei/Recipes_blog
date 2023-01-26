@@ -13,6 +13,12 @@
         {{ form.as_p }}
         <button class="btn btn-secondary">Post</button>
 </div>
+
+<script>
+    var id = "{{user.id}}";
+    document.getElementById("1").value=id;
+</script>
+
 {% else %}
 <h3>Error!</h3>
 
