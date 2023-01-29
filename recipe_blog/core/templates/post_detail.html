@@ -8,6 +8,9 @@
 {{post.post_date}}
 <br>
 <br>
+<strong>{{post.total_likes}} Likes</strong>
+<br>
+<br>
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
         <a href="{% url 'update_post' post.pk %}" >Edit Post</a>
@@ -20,5 +23,16 @@
 <br>
 <br>
 <a href="{% url 'home' %}" class="btn btn-primary" type="button"> Back to all posts</a>
+
+<br/>
+<hr>
+<br/>
+{% if user.is_authenticated %}
+<form action="{% url 'like_post' post.pk %}" method = "POST">
+    {% csrf_token %}
+    <button type="submit" , name="post_id" , value="{{post.id}}" , class="btn btn-primary btn-sm">Like</button>
+</form>
+{% endif %}
+
 
 {% endblock %}
